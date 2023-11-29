@@ -1,0 +1,101 @@
+
+
+.card-profile-head{
+    display: flex !important;
+    padding: 50px 0px !important;
+}
+.userinfo-row{
+    flex-wrap: wrap !important;
+    display: flex;
+}
+.col-info {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.devider{
+    height: 5.9rem !important;
+}
+
+.avatar2{
+    width: 120px !important;
+    height: 120px !important;
+    line-height: 64px !important;
+    font-size: 18px !important;
+    border-radius: 60px !important;
+}
+
+.avatar-info{
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+}
+
+.icon-info{
+    font-size: 29px;
+    color: #1890ff;
+}
+
+.card-content{
+    padding: 50px 0px !important;
+}
+
+.card-media{
+    margin: -15px -8px !important;
+    border-radius: 8px 8px 0px 0px !important;
+    background-color: #2f333b !important;
+}
+
+.details-card-div{
+    height: 50px;
+    width: 50px;
+    background-color: #272b35;
+    border-radius: 5rem;
+    padding: 9px 13px;
+    display: flex;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -134%);
+
+    margin-top: 61px;
+}
+
+.personal-details{
+    display: flex;
+    gap: 20px;
+}
+
+.gridstyle{
+    border-width: 0px !important;
+    background-color: #272b35 !important;
+    font-family: 'Poppins', sans-serif !important;
+    color: white !important;
+  }
+
+.phone_input{
+    background-color: #20242c !important;
+    height: 46px !important;
+    width: 339px !important;
+    color: white !important;
+}
+
+
+@media only screen and (max-width: 700px){
+	.personal-details {
+        display: block;
+        gap: 20px;
+    }
+
+    .details-card{
+       width: 100% !important;
+    }
+
+    .card-content{
+        display: block !important;
+        padding: 50px 20px !important;
+    }
+    .devider{
+        height: 0.9rem !important;
+    }
+}

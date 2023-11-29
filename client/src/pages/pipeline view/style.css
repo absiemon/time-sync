@@ -1,0 +1,78 @@
+
+.column{
+    width: 350px;
+}
+.board{
+    display: flex;
+    gap: 20px;
+    background-color: #272B35;
+    border-radius: 10px;
+    padding: 10px;
+    height: 80vh;
+    width: 77vw;
+    overflow-x: scroll;
+    color: #CCCCCC;
+}
+.column-header{
+    background-color: #20232A;
+    padding: 15px 15px;
+    border-radius: 5px 5px 0px 0px;
+    
+}
+.add-column{
+    background-color: #20232a;
+    padding: 8px 15px;
+    border-radius: 5px;
+    height: 60px;
+    cursor: pointer;
+}
+.column-header-list{
+    display: flex;
+    gap: 10px;
+    padding: 3px 0px;
+}
+.card-list{
+    background-color: #20232A;
+    padding: 13px 13px 13px 13px;
+    margin-top: 10px;
+    height: 340px;
+    overflow-y: scroll;
+    border-radius: 0px 0px 5px 0px;
+}
+.card{
+    background-color: #272B35;
+    padding: 12px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    font-size: 14px;
+    border: 1px solid #435253;
+}
+
+.card:hover{
+    border: 1px solid #03C9D7;
+}
+
+.add-card-button{
+    /* border:none; */
+    width: 350px;
+    background-color: #494c53;
+    border-radius: 3px !important;
+    
+}
+
+.activity{
+    background-color: #1890ff;
+    padding: 2px 9px;
+    color: white;
+    border-radius: 3px;
+    font-weight: 600;
+}
+
+.loss{
+    background-color: red;
+    padding: 2px 9px;
+    color: white;
+    border-radius: 3px;
+    font-weight: 600;
+    margin-left: -30px;
+}

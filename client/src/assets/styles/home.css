@@ -1,0 +1,98 @@
+.ant-card-body {
+    padding: 15px 9px !important;
+}
+
+@media only screen and (min-width: 400px) and (max-width: 880px) {
+	.ant-col-xs-6 {
+		flex: 0 0 14% !important;
+	}
+    .info_tab{
+        flex-direction: column !important;
+    }
+    .info_tab_one{
+        width: 100% !important;
+    }
+}
+
+@media only screen and (min-width: 400px) and (max-width: 600px) {
+    .info_tab_footer{
+        flex-direction: column !important;
+        gap: 20px;
+    }
+    .icon-box-punch{
+        width: 60px !important;
+    }
+    .card_level{
+        flex-direction: column !important;
+    }
+    .card_level_box{
+        width: 100% !important;
+        gap: 3rem !important;
+    }
+   
+}
+
+
+.punchcol{
+    margin-bottom: 24px;
+    display: flex !important;
+    gap: 15px;
+    flex: 0 0 17.666667% !important;
+
+}
+
+
+
+.css-6hp17o-MuiList-root-MuiMenu-list{
+    width: 11rem !important;
+}
+.dropdown{
+    background-color: #272b35 !important;
+}
+.ant-dropdown{
+    width: 15rem !important;
+}
+
+.devider2{
+    height: 2rem !important;
+    border-left: 2px solid rgba(0, 0, 0, 0.06) !important
+}
+
+.attandance-drawer{
+    height: 600px;
+    width: 58%;
+    left: 18rem;
+}
+
+.cardbg{
+    background-color: #272b35;
+    color:white
+}
+
+.ant-dropdown-menu{
+    background-color: #272b35 !important;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.icon-box-punch{
+    height: 60px;
+    display: flex;
+    width: 182px;
+    background-color: #1C1F26;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+}
+.icon-box-punch_atten{
+    height: 66px;
+    display: flex;
+    width: 66px;
+    background-color: #1C1F26;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+}
+
+.divider{
+    margin:10px 0px !important;
+}

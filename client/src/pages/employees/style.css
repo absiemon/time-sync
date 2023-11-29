@@ -1,0 +1,166 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300&family=Poppins:ital,wght@0,400;1,400;1,500&family=Work+Sans&display=swap'); */
+
+.root{
+    display: flex;
+    gap: 20px;
+}
+.body{
+display: block;
+height: 450px;
+width: 316px;    
+background-color: #f5f5f5;
+margin-top: 20px;
+}
+.header{
+    height: 50px;
+    width: 250px;
+    background-color: #002841;
+    border-radius:0px 0px 100px 0px ;
+    color: white;
+    padding: 13px;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.card1 {
+    
+    border-radius: 8px;
+    padding: 27px 0px;
+    
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+
+.card2 {
+    
+    border-radius: 8px;
+    padding: 5px 0px;
+    
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+.img{
+    height: 130px;
+    width: 130px;
+    background-color: white;
+    display: block;
+    margin:0 auto;
+}
+.image{
+    padding: 8px;
+    height: 130px;
+    width: 130px;
+}
+  .title {
+    font-size: 20px;
+    color: #6680D3;
+    font-family: 'Poppins', sans-serif;
+    
+    font-weight: bold;
+    margin-bottom: 0px;
+    text-align: center;
+    
+  }
+
+  .subtitle {
+    font-size: 13px;
+    color: #002841;
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+
+  }
+.break{
+    width: 100px;
+    display: block;
+    margin:0 auto;
+    height: 1.8px;
+    background-color: #002841;
+    margin-bottom: 20px;
+}
+  .content {
+    margin-bottom: 0px;
+    font-size: 14px;
+    color: #002841;
+    /* padding: 0px 80px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: 'Poppins', sans-serif;
+
+  }
+
+  .bottom{
+    height: 50px;
+    width: 250px;
+    background-color: #002841;
+    border-radius:100px 0px 0px 0px ;
+    margin-left: 66px;
+}
+
+.back{
+    padding: 20px;
+}
+
+.custom-data-grid .MuiDataGrid-cell {
+  line-height: 4rem; /* Increase the line height to increase the row height */
+}
+
+.gridstyle{
+  border-width: 0px !important;
+  background-color: #272b35 !important;
+  font-family: 'Poppins', sans-serif !important;
+  color: white !important;
+}
+
+.css-1w53k9d-MuiDataGrid-overlay{
+  background-color: #272b35 !important;
+}
+
+.bgcl{
+  background-color: #272b35;
+  color: white;
+}
+
+.filter-drawer{
+    height: 400px;
+    width: 25%;
+    left: 18rem;
+    top: 13.5rem;
+}
+
+.ant-drawer-mask{
+  background-color: #272b35 !important;
+}
+
+.phone-input{
+  background-color: #20242c !important;
+  height: 46px !important;
+  width: 456px !important;
+  color: white !important;
+}
+
+.phone-dropdown{
+  background-color: #272b35 !important;
+  color: white !important;
+}
+.react-tel-input .country-list .country:hover{
+  background-color: #20242c !important;
+}
+
+.phone-container{
+  background-color: #272b35 !important;
+
+}
+.phone-button{
+  background-color: #272b35 !important;
+}
+.phone-button:hover{
+  background-color: #272b35 !important;
+}
+.search-class{
+  /* background-color: red !important; */
+
+}
