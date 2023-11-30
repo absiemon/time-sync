@@ -106,6 +106,10 @@ const Register = () => {
                       <SiShopware className="login_right-logo-icon" />{" "}
                       <span>Time Sync</span>
                     </div>
+                    <p style={{ color: "rgb(3, 201, 215)", fontSize: "12px", margin:"5px 0px 0px 46px"}}>
+                      Best tool for managing Deals information
+                      and their activity.
+                    </p>
                   </div>
                   <div style={{ marginBottom: "2rem" }}>
                     <h2 class="login_right-h2">Welcome,</h2>

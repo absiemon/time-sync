@@ -71,7 +71,7 @@ const Login2 = () => {
                       </h1>
                     </div>
                     <p className="h6 text-white lh-1-5 mb-5 login_left-p">
-                      This is a best too for managing employee information
+                      This is a best tool for managing employee information
                       and their activity.
                     </p>
                   </div>
@@ -89,7 +89,12 @@ const Login2 = () => {
                       <SiShopware className="login_right-logo-icon" />{" "}
                       <span>Time Sync</span>
                     </div>
+                    <p style={{ color: "rgb(3, 201, 215)", fontSize: "12px", margin:"5px 0px 0px 46px"}}>
+                      Best tool for managing Deals information
+                      and their activity.
+                    </p>
                   </div>
+
                   <div style={{ marginBottom: "2rem" }}>
                     <h2 class="login_right-h2">Welcome,</h2>
                     <h2 class="login_right-h2">let's get started!</h2>
@@ -131,8 +136,13 @@ const Login2 = () => {
                       </Button>
 
                       <div className="mt-3 flex gap-2">
+                        <p className="text-white"> Forget password?</p>
+                        <Link to={"/auth/reset_password"} className="text-main"> reset</Link>
+                      </div>
+
+                      <div className="mt-3 flex gap-2">
                         <p className="text-white"> Not have an account?</p>
-                        <Link to={"/auth/signin"} className="text-main"> Sign in</Link>
+                        <Link to={"/auth/signup"} className="text-main"> Sign up</Link>
                       </div>
                     </div>
                   </div>

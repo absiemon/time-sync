@@ -3,6 +3,12 @@ import jwt from "jsonwebtoken"
 import { uplaodToS3, deleteFromS3 } from '../services/FilesOperation.js'
 import { generateRandomUserId } from '../services/generateUserId.js';
 
+import nodemailer from 'nodemailer'
+// const EMAIL = process.env.SMTP_EMAIL
+// const PASSWORD = process.env.SMTP_PASSWORD
+let otp;
+let otpExpiryTime;
+
 const fields = 'emp_id, name, email, gender, phone, address, country, state, city, dob, created_at, emp_image, updated_at FROM employees'
 
 export const createUser = async (req, res) => {
@@ -207,7 +213,115 @@ export const uploadEmpImage = async (req, res) => {
         })
 
     } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: 'Internal server error' });
+        return res.status(500).json({ status: false, error: `Internal server error ${err}` });
+
+    }
+}
+
+
+export const sendMail = async(req, res) => {
+
+    const { userEmail} = req.body;
+
+    try {
+        console.log(userEmail)
+        let query = 'SELECT * FROM employees WHERE email = ?';
+        db.query(query, [userEmail], (err, result) => {
+            if (err) {
+                return res.status(500).json({ status: false, error: `Internal server error ${err}` });
+            }
+            if (result.length === 0) {
+                console.log("here")
+                return res.status(200).json({ status: false, data: `No user found of that email address` });
+            }
+        })
+
+        let config = {
+            service : 'gmail',
+            auth : {
+                user: process.env.EMAIL,
+                pass: process.env.PASSWORD
+            }
+        }
+        let transporter = nodemailer.createTransport(config);
+    
+        otp = Math.floor(100000 + Math.random() * 900000).toString(); // 6-digit OTP
+        otpExpiryTime = new Date();
+        otpExpiryTime.setMinutes(otpExpiryTime.getMinutes() + 5);
+    
+        let message = {
+            from : "siemonab@gmail.com",
+            to : userEmail,
+            subject: "Otp for password reset is:",
+            html: "<h3>OTP for account verification is </h3>"  + "<h1 style='font-weight:bold;'>" + otp +"</h1>"
+        }
+    
+        transporter.sendMail(message).then(() => {
+            return res.status(200).json({
+                status: true, data: "you should receive an email"
+            })
+        }).catch(error => {
+            return res.status(500).json({ status: false, error: `Internal server error ${error}` });
+        })
+    } catch (err) {
+        return res.status(500).json({ status: false, error: `Internal server error ${err}` });
+        
+    }
+}
+
+export const verifyOtp = async(req, res) => {
+    const { requestedOtp } = req.body;
+    try {
+        console.log(requestedOtp, otp)
+        console.log(typeof(requestedOtp), typeof(otp))
+        const currentTime = new Date();
+
+        console.log(currentTime, otpExpiryTime)
+        if (currentTime > otpExpiryTime) {
+            return res.status(200).json({ status: false, data: "Otp has been expired! please regenerate otp" });
+        }
+        if (requestedOtp === otp) {
+            otp = null;
+            otpExpiryTime = null;
+            return res.status(200).json({ status: true, data: "Otp successfully verified!" });
+            
+        } 
+        else {
+            return res.status(200).json({ status: false, data: "Otp does not match" });
+        }
+    } 
+    catch (err) {
+        return res.status(500).json({ status: false, error: `Internal server error ${err}` });
+    }
+}
+
+export const updatePassword = async (req, res) => {
+    const email = req.body.email;
+    const fieldsToUpdate = req.body;
+
+    try {
+        let query = "UPDATE employees SET ";
+
+        let updateValues = [];
+        for (const [key, value] of Object.entries(fieldsToUpdate)) {
+            query += `${key}=?,`;
+            updateValues.push(value);
+        }
+        query = query.slice(0, -1); // Removing last comma
+
+        query += " WHERE email=?"
+        updateValues.push(email);
+
+        db.query(query, updateValues, (err, result) => {
+            if (err) {
+                return res.status(500).json({ status: false, error: `Internal server error ${err}` });
+            }
+            else {
+                res.status(200).json({ status: true, data: result });
+            }
+        })
+
+    } catch (err) {
+        return res.status(500).json({ status: false, error: `Internal server error ${err}` });
     }
 }

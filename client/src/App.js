@@ -16,6 +16,7 @@ import Pipeline from "./pages/pipelines/Pipeline";
 import PipelineForm from "./pages/pipelines/PipelineForm";
 import Sales_pipelines from "./pages/pipeline view/Sales_pipelines";
 import Register from "./pages/auth/Register";
+import ResetPassword from "./pages/auth/ResetPassword";
 
 const Persons = lazy(() => import("./pages/persons/Persons"));
 const PersonsForm = lazy(() => import("./pages/persons/PersonsForm"));
@@ -245,7 +246,8 @@ const App = () => {
       ) : (
         <Routes>
           <Route path="/auth/login" element={<Login />} />
-          <Route path="/auth/signin" element={<Register />} />
+          <Route path="/auth/signup" element={<Register />} />
+          <Route path="/auth/reset_password" element={<ResetPassword />} />
           {/* <Login /> */}
         </Routes>
       )}
