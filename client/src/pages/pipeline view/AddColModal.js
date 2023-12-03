@@ -108,7 +108,7 @@ function AddColModal({ visible, setVisible, fetchAgain, setFetchAgain, selectedP
                                 },
                             ]}
                         >
-                            <Input placeholder="Enter the column name" />
+                            <Input placeholder="Enter the column name" required/>
                         </Form.Item>
 
                         <Form.Item

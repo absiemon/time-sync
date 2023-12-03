@@ -6,7 +6,7 @@ import { Home } from "./pages";
 import "./App.css";
 
 import { useStateContext } from "./contexts/ContextProvider";
-import Login from "./pages/auth/Login2";
+import Login from "./pages/auth/Login2.jsx";
 import { Spin, message } from "antd";
 import LoadingPage from "./LoadingPage";
 import axios from "axios";
@@ -30,7 +30,7 @@ const Proposal = lazy(() => import("./pages/proposal/Proposal"));
 const ProposalForm = lazy(() => import("./pages/proposal/ProposalForm"));
 
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = 'http://localhost:8000/api';
+axios.defaults.baseURL = 'https://timesync-2fmv.onrender.com/api';
 
 const App = () => {
   const navigate = useNavigate()

@@ -5,19 +5,19 @@ import { HiOutlineEnvelope } from "react-icons/hi2";
 import { IoLockOpenOutline } from "react-icons/io5";
 import axios from "axios";
 import { useStateContext } from "../../contexts/ContextProvider";
-import { Button, notification } from 'antd';
+import { Button, Form, Input, notification } from 'antd';
 import { Link } from "react-router-dom";
 
 const Login2 = () => {
 
 
   const { setUser } = useStateContext();
+  const [form] = Form.useForm();
+
   // --------------[States]---------------
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  const [error, setError] = useState({email: "", password: ""})
+  const [loading, setLoading] = useState(false)
 
 
   const [api, contextHolder] = notification.useNotification();
@@ -29,34 +29,8 @@ const Login2 = () => {
     });
   };
 
-  const handleChange = (e)=>{
-    const key = e.target.name;
-    setError((prev)=>{
-      return {...prev, [e.target.name] : ""}
-    })
-    if(key === "email"){
-      setEmail(e.target.value);
-    }
-    if(key === "password"){
-      setPassword(e.target.value);
-    }
-  }
 
   const handleSubmit = async (e) => {
-
-    if(!email){
-      setError((prev)=>{
-        return {...prev, email: "enter valid email"}
-      })
-      return;
-    }
-    if(!password){
-      setError((prev)=>{
-        return {...prev, password: "enter valid password"}
-      })
-      return;
-    }
-
     e.preventDefault();
     setLoading(true)
     try {
@@ -134,38 +108,43 @@ const Login2 = () => {
                   </div>
                   <div>
                     <div id="loginForm" class="tooltip-end-bottom" novalidate >
-                      <div class="mb-3 filled form-group tooltip-end-top login_right-form-inp">
-                        <HiOutlineEnvelope className="login_right-logo-icon-inp" />
-                        <input
-                          class="login_right-form-inp-input"
-                          style={{
-                            border: `${error.email.length > 0 ? "1px solid #f32424" : ""}`,
-                            borderRadius: `${error.email.length > 0 ? "10px" : ""}`
-                          }}
-                          placeholder="Email"
-                          name="email"
-                          autoComplete="off"
-                          value={email}
-                          onChange={handleChange}
-                        />
-                        
-                      </div>
-                      <div class="mb-3 filled form-group tooltip-end-top login_right-form-inp">
-                        <IoLockOpenOutline className="login_right-logo-icon-inp" />
-                        <input
-                          class="login_right-form-inp-input"
-                          style={{
-                            border: `${error.password.length> 0 ? "1px solid #f32424" : ""}`,
-                            borderRadius: `${error.password.length > 0 ? "10px" : ""}`
-                          }}
-                          name="password"
-                          type="password"
-                          placeholder="Password"
-                          autoComplete="off"
-                          value={password}
-                          onChange={handleChange}
-                        />
-                      </div>
+                    <Form
+                        layout="vertical"
+                        className="row-col"
+                        form={form}
+                    >
+                        <Form.Item
+                            className="username"
+                            label="Email"
+                            name="email"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please input the valid email",
+                                },
+                            ]}
+                        >
+                            <Input placeholder="Enter your email" status="error"/>
+                        </Form.Item>
+
+                        <Form.Item
+                            className="username"
+                            // label="Password"
+                            name="password"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: "Please input the valid password",
+                                },
+                            ]}
+
+                        >
+                            <Input placeholder="Enter your password" status="error"/>
+                        </Form.Item>
+
+
+                    </Form>
+                      
                       <Button type="primary" htmlType="submit" className="punch" style={{backgroundColor: "rgb(3, 201, 215)" }} loading={loading} onClick={handleSubmit}>
                         Login
                       </Button>
