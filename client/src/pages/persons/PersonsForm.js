@@ -31,7 +31,7 @@ function PersonsForm() {
         if (id) {
             const fetchData = async () => {
                 try {
-                    const res = await axios.get(`http://localhost:8000/api/persons/${id}/get`);
+                    const res = await axios.get(`/persons/${id}/get`);
                     const data = res.data.data[0];
                     data.phone && data.phone.length > 0 && setPhoneInputArr(JSON.parse(data?.phone));
                     data.email && data.email.length > 0 && setEmailsArr(JSON.parse(data?.email));
@@ -124,10 +124,10 @@ function PersonsForm() {
         const values = {...form.getFieldValue(), emp_id: user?.emp_id}
         try {
             if (id) {
-                await axios.put(`http://localhost:8000/api/persons/${id}/update`, values);
+                await axios.put(`/persons/${id}/update`, values);
                 navigate("/persons")
             } else {
-                await axios.post('http://localhost:8000/api/persons/create', values);
+                await axios.post('/persons/create', values);
                 navigate("/persons")
             }
             setLoading(false);

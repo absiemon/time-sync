@@ -75,7 +75,7 @@ function Profile2() {
   useEffect(() => {
 
     const fetchData = async () => {
-      const result = await axios.get(`http://localhost:8000/api/auth/${user?.emp_id}/get`);
+      const result = await axios.get(`/auth/${user?.emp_id}/get`);
       const data = result?.data.data[0];
       setEmployee(data);
       setGenderValue(data.gender)
@@ -103,7 +103,7 @@ function Profile2() {
     setEditLoading(true)
 
     try {
-      await axios.put(`http://localhost:8000/api/auth/${employee?.emp_id}/update`, obj);
+      await axios.put(`/auth/${employee?.emp_id}/update`, obj);
       setEditLoading(false)
       setEditOn(false)
       setFetchAgain(!fetchAgain)

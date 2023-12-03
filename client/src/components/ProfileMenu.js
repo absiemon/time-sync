@@ -21,7 +21,7 @@ function ProfileMenu(){
   }
   const logout = () => {
     try {
-      axios.post("http://localhost:8000/api/auth/logout")
+      axios.post("/auth/logout")
       localStorage.removeItem('user')
       window.location.reload();
     } catch (error) {

@@ -44,7 +44,7 @@ const Register = () => {
     setLoading(true)
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/auth/create",
+        "/auth/create",
         { email, password, name, phone: phoneNumber }
       ).then((res)=>{
         setLoading(false)

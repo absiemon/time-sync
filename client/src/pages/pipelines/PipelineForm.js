@@ -26,7 +26,7 @@ function PipelineForm() {
         if (id) {
             const fetchData = async () => {
                 try {
-                    const res = await axios.get(`http://localhost:8000/api/persons/get/${id}`);
+                    const res = await axios.get(`/persons/get/${id}`);
                     const data = res.data[0];
 
                     form.setFieldsValue({
@@ -101,10 +101,10 @@ function PipelineForm() {
         
         try {
             if (id) {
-                await axios.put(`http://localhost:8000/api/pipeline/${id}/update`, obj);
+                await axios.put(`/pipeline/${id}/update`, obj);
                 navigate("/pipeline")
             } else {
-                await axios.post('http://localhost:8000/api/pipeline/create', obj);
+                await axios.post('/pipeline/create', obj);
                 setLoading(false);
                 navigate("/pipeline")
             }

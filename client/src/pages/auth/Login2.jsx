@@ -33,7 +33,7 @@ const Login2 = () => {
     setLoading(true)
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/auth/login",
+        "/auth/login",
         { email, password }
       );
       setLoading(false)

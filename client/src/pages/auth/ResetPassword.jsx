@@ -34,7 +34,7 @@ const ResetPassword = () => {
     e.preventDefault();
     setLoading(true)
       const res = await axios.post(
-        "http://localhost:8000/api/auth/send_email",
+        "/auth/send_email",
         { userEmail: email }
       ).then((res)=>{
         setLoading(false)
@@ -55,7 +55,7 @@ const ResetPassword = () => {
     e.preventDefault();
     setLoading(true)
     const res = await axios.post(
-      "http://localhost:8000/api/auth/verify_otp",
+      "/auth/verify_otp",
       { requestedOtp: otp }
     ).then((res)=>{
       setLoading(false)
@@ -76,7 +76,7 @@ const ResetPassword = () => {
     e.preventDefault();
     setLoading(true)
     const res = await axios.put(
-      "http://localhost:8000/api/auth/update_password",
+      "/auth/update_password",
       { email, password }
     ).then((res)=>{
       setLoading(false)

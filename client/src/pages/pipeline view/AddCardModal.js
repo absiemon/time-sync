@@ -44,7 +44,7 @@ function AddCardModal({ visible, setVisible, clickedCol, setColumns, setCards, f
   useEffect(() => {
     if (cardId) {
       const fetchData = async () => {
-        await axios.get(`http://localhost:8000/api/deal/${cardId}/get`).then((res) => {
+        await axios.get(`/deal/${cardId}/get`).then((res) => {
           console.log(res.data);
           const data = res.data?.data[0];
 
@@ -92,7 +92,7 @@ function AddCardModal({ visible, setVisible, clickedCol, setColumns, setCards, f
   useEffect(() => {
     if (leadType) {
       const fetchData = async () => {
-        const res = await axios.get(`http://localhost:8000/api/${leadType}/get`);
+        const res = await axios.get(`/${leadType}/get`);
         setLeadTypeValue(res.data.data)
       }
       fetchData();
@@ -166,7 +166,7 @@ function AddCardModal({ visible, setVisible, clickedCol, setColumns, setCards, f
           values: values,
           deal_value_diff: diff
         }
-        await axios.put(`http://localhost:8000/api/deal/${cardId}/update`, obj);
+        await axios.put(`/deal/${cardId}/update`, obj);
         setFetchAgain(!fetchAgain)
         setLoading(false);
         setVisible(false)
@@ -174,7 +174,7 @@ function AddCardModal({ visible, setVisible, clickedCol, setColumns, setCards, f
         form.resetFields();
       }
       else {
-        await axios.post(`http://localhost:8000/api/deal/create`, values);
+        await axios.post(`/deal/create`, values);
         setFetchAgain(!fetchAgain)
         setLoading(false);
         setVisible(false)

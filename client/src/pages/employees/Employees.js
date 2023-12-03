@@ -105,13 +105,13 @@ function Employees() {
       setLoading(true)
       let result;
       if(filterByName){
-        result = await axios.get(`http://localhost:8000/api/employee/get-employee?name=` + filterByName);
+        result = await axios.get(`/employee/get-employee?name=` + filterByName);
       }
       else if(selectedDepartment){
-        result = await axios.get(`http://localhost:8000/api/employee/get-employee?dep_name=` + selectedDepartment);
+        result = await axios.get(`/employee/get-employee?dep_name=` + selectedDepartment);
       }
       else{
-        result = await axios.get(`http://localhost:8000/api/employee/get-employee?page${pageNo}&pageSize=10`);
+        result = await axios.get(`/employee/get-employee?page${pageNo}&pageSize=10`);
       }
       setEmployees(result.data?.data);
       setLoading(false)
@@ -121,7 +121,7 @@ function Employees() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get(`http://localhost:8000/api/department/get`);
+      const result = await axios.get(`/department/get`);
       setDepartments(result.data);
     };
     fetchData();
@@ -145,7 +145,7 @@ function Employees() {
           'Your file has been deleted.',
           'success'
         )
-        axios.delete(`http://localhost:8000/api/employee/delete-employee/${sr_no}`);
+        axios.delete(`/employee/delete-employee/${sr_no}`);
         setEmployees(employees.filter((item) => item.id !== sr_no));
       }
     })

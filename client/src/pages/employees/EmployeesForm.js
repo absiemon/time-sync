@@ -50,7 +50,7 @@ function EmployeesForm() {
         if (id) {
             const fetchData = async () => {
                 try {
-                    const res = await axios.get(`http://localhost:8000/api/employee/get-single-employee/${id}`);
+                    const res = await axios.get(`/employee/get-single-employee/${id}`);
                     const data = res.data?.data[0];
                     data?.emp_image && data?.emp_image.length > 0 && setUploadedEmpImage(data?.emp_image);
                     data?.emp_cv && data?.emp_cv.length > 0 && setUploadedEmpCv(data?.emp_cv)
@@ -91,14 +91,14 @@ function EmployeesForm() {
 
     useEffect(() => {
         const fetchData = async () => {
-            const result = await axios.get(`http://localhost:8000/api/department/get`);
+            const result = await axios.get(`/department/get`);
             setDepartments(result.data);
         };
         fetchData();
     }, []);
     useEffect(() => {
         const fetchData = async () => {
-            const result = await axios.get(`http://localhost:8000/api/designation/get`);
+            const result = await axios.get(`/designation/get`);
             setDesignations(result.data);
         };
         fetchData();
@@ -181,7 +181,7 @@ function EmployeesForm() {
         if(type === 'emp_cv') setLoading2(true)
         if(type === 'emp_certificates') setLoading3(true)
 
-        axios.post('http://localhost:8000/api/employee/upload-files', data).then((res) => {
+        axios.post('/employee/upload-files', data).then((res) => {
             const lableData = res.data;
 
             if (type === 'emp_img') {
@@ -232,7 +232,7 @@ function EmployeesForm() {
             setUploadedEmpCertificates(prev => prev.filter(p => p !== fname));
         }
 
-        axios.delete(`http://localhost:8000/api/employee/delete-ftp-file/${fname}?id=${id}&field=${field}`).then((res) => {
+        axios.delete(`/employee/delete-ftp-file/${fname}?id=${id}&field=${field}`).then((res) => {
             if (type === 'emp_img') {
                 form.setFieldsValue({
                     emp_image: res.data?.data
@@ -269,11 +269,11 @@ function EmployeesForm() {
         setButtonLoading(true)
         try {
             if (id) {
-                await axios.put(`http://localhost:8000/api/employee/update-employee/${id}`, values);
+                await axios.put(`/employee/update-employee/${id}`, values);
                 setButtonLoading(false)
                 navigate("/employee")
             } else {
-                await axios.post('http://localhost:8000/api/employee/create-employee', values);
+                await axios.post('/employee/create-employee', values);
                 setButtonLoading(false)
                 navigate("/employee")
             }

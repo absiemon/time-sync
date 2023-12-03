@@ -42,7 +42,7 @@ function Proposal() {
       email: email,
       template: template
     }
-    await axios.put(`http://localhost:8000/api/proposal/update/${id}`, values).then((res)=>{
+    await axios.put(`/proposal/update/${id}`, values).then((res)=>{
         // setFetchAgain(!fetchAgain)
         message.success("Proposal email send successfully");
     }).catch((err)=>{
@@ -143,10 +143,10 @@ function Proposal() {
       let result;
       if (filterByName) {
         result = await axios.get(
-          `http://localhost:8000/api/proposal/get?name=` + filterByName
+          `/proposal/get?name=` + filterByName
         );
       } else {
-        result = await axios.get("http://localhost:8000/api/proposal/get");
+        result = await axios.get("/proposal/get");
       }
       setLoading(false);
       setProposals(result.data);
@@ -166,7 +166,7 @@ function Proposal() {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire("Deleted!", "Your file has been deleted.", "success");
-        axios.delete(`http://localhost:8000/api/proposal/delete/${sr_no}`);
+        axios.delete(`/proposal/delete/${sr_no}`);
         setProposals(proposals.filter((item) => item.id !== sr_no));
       }
     });

@@ -116,10 +116,10 @@ function Organization() {
       setLoading(true)
       let result;
       if (filterByName) {
-        result = await axios.get(`http://localhost:8000/api/organization/get?name=` + filterByName);
+        result = await axios.get(`/organization/get?name=` + filterByName);
       }
       else {
-        result = await axios.get('http://localhost:8000/api/organization/get');
+        result = await axios.get('/organization/get');
       }
       setLoading(false)
       setOrganizations(result.data?.data);
@@ -143,7 +143,7 @@ function Organization() {
           'Your file has been deleted.',
           'success'
         )
-        axios.delete(`http://localhost:8000/api/organization/${sr_no}/delete`);
+        axios.delete(`/organization/${sr_no}/delete`);
         setOrganizations(organizations.filter((item) => item.id !== sr_no));
       }
     })

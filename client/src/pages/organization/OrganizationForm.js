@@ -26,7 +26,7 @@ function OrganizationForm() {
         if (id) {
             const fetchData = async () => {
                 try {
-                    const res = await axios.get(`http://localhost:8000/api/organization/${id}/get`);
+                    const res = await axios.get(`/organization/${id}/get`);
                     const data = res.data.data[0];
 
                     form.setFieldsValue({
@@ -55,10 +55,10 @@ function OrganizationForm() {
 
         try {
             if (id) {
-                await axios.put(`http://localhost:8000/api/organization/${id}/update`, newValues);
+                await axios.put(`/organization/${id}/update`, newValues);
                 navigate("/organization")
             } else {
-                await axios.post('http://localhost:8000/api/organization/create', newValues);
+                await axios.post('/organization/create', newValues);
                 navigate("/organization")
             }
             setLoading(false);

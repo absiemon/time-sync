@@ -52,7 +52,7 @@ const Sales_pipelines = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axios.get(`http://localhost:8000/api/pipeline/get`);
+      const res = await axios.get(`/pipeline/get`);
       const data = res.data?.data;
       // setSelectedPipelineName(data[0]?.name)
       setPipelines(data);
@@ -86,7 +86,7 @@ const Sales_pipelines = () => {
           const obj = {
             deal_status: deal_status
           }
-          await axios.put(`http://localhost:8000/api/deal/${deal_id}/update_deal_status`, obj);
+          await axios.put(`/deal/${deal_id}/update_deal_status`, obj);
           setFetchAgain(!fetchAgain)
         }
       })
@@ -117,7 +117,7 @@ const Sales_pipelines = () => {
           'Your file has been deleted.',
           'success'
         )
-        axios.delete(`http://localhost:8000/api/deal/${deal_id}/delete?pip_id=${selectedPipelineId}&deal_value=${deal_value}`);
+        axios.delete(`/deal/${deal_id}/delete?pip_id=${selectedPipelineId}&deal_value=${deal_value}`);
         setFetchAgain(!fetchAgain)
       }
     })
@@ -127,7 +127,7 @@ const Sales_pipelines = () => {
     if (selectedPipeline) {
       const fetchData = async () => {
         setLoading(true)
-        await axios.get(`http://localhost:8000/api/pipeline/${selectedPipeline?.pip_id}/get-pipeline-view`).then((res) => {
+        await axios.get(`/pipeline/${selectedPipeline?.pip_id}/get-pipeline-view`).then((res) => {
           setColumns(res.data)
           let ic = {};
           const data = res.data;
@@ -285,7 +285,7 @@ const Sales_pipelines = () => {
         stage_id: destinationColumn.id
       }
       try {
-        await axios.put(`http://localhost:8000/api/deal/${draggableId}/update_stageid`, values);
+        await axios.put(`/deal/${draggableId}/update_stageid`, values);
         // setFetchAgain(!fetchAgain)
       } catch (err) {
         message.error('Error in updating deals');

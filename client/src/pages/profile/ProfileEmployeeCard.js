@@ -21,7 +21,7 @@ const ProfileEmployeeCard = () => {
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios.get(
-        "http://localhost:8000/api/employee/get-single-employee/" + id
+        "/employee/get-single-employee/" + id
       );
       setEmployee(result.data[0]);
       setEmpImage(

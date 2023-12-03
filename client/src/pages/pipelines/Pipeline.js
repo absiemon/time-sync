@@ -76,10 +76,10 @@ function Pipeline() {
       setLoading(true)
       let result;
       if(filterByName){
-        result = await axios.get('http://localhost:8000/api/pipeline/get?name=' + filterByName);
+        result = await axios.get('/pipeline/get?name=' + filterByName);
       }
       else{
-        result = await axios.get(`http://localhost:8000/api/pipeline/get?page=${pageNo}&pageSize=10`);
+        result = await axios.get(`/pipeline/get?page=${pageNo}&pageSize=10`);
       }
 
       setPipelines(result.data?.data);
@@ -104,7 +104,7 @@ function Pipeline() {
           'Your file has been deleted.',
           'success'
         )
-        axios.delete(`http://localhost:8000/api/pipeline/delete/${sr_no}`);
+        axios.delete(`/pipeline/delete/${sr_no}`);
         setPipelines(pipelines.filter((item) => item.pip_id !== sr_no));
       }
     })

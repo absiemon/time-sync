@@ -30,7 +30,7 @@ function ProposalForm() {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await axios.get(`http://localhost:8000/api/deal/get`);
+            const res = await axios.get(`/deal/get`);
             setDeals(res.data)
         }
         fetchData();
@@ -53,7 +53,7 @@ function ProposalForm() {
         if (id) {
             const fetchData = async () => {
                 try {
-                    const res = await axios.get(`http://localhost:8000/api/proposal/get/${id}`);
+                    const res = await axios.get(`/proposal/get/${id}`);
                     const data = res.data[0];
                     setEditorContent(data?.template)
                     handleDealSelect(data?.deal_title)
@@ -91,7 +91,7 @@ function ProposalForm() {
         if (selectedDealId) {
             try {
                 const fetch = async()=>{
-                    let result = await axios.get(`http://localhost:8000/api/proposal/get-emails/${selectedDealId}`)
+                    let result = await axios.get(`/proposal/get-emails/${selectedDealId}`)
                     const data = result.data;
                     if (data?.email) {
                         setEmails(JSON.parse(data.email));
@@ -117,10 +117,10 @@ function ProposalForm() {
         console.log(newValues)
         try {
             if (id) {
-                await axios.put(`http://localhost:8000/api/proposal/update/${id}`, newValues);
+                await axios.put(`/proposal/update/${id}`, newValues);
                 navigate("/proposal")
             } else {
-                await axios.post('http://localhost:8000/api/proposal/create', newValues);
+                await axios.post('/proposal/create', newValues);
                 navigate("/proposal")
             }
             setLoading(false);

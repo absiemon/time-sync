@@ -141,10 +141,10 @@ function Persons() {
       setLoading(true)
       let result;
       if (filterByName) {
-        result = await axios.get(`http://localhost:8000/api/persons/get?name=` + filterByName);
+        result = await axios.get(`/persons/get?name=` + filterByName);
       }
       else {
-        result = await axios.get('http://localhost:8000/api/persons/get');
+        result = await axios.get('/persons/get');
       }
       setLoading(false)
       setPersons(result.data?.data);
@@ -168,7 +168,7 @@ function Persons() {
           'Your file has been deleted.',
           'success'
         )
-        axios.delete(`http://localhost:8000/api/persons/${sr_no}/delete`);
+        axios.delete(`/persons/${sr_no}/delete`);
         setPersons(persons.filter((item) => item.id !== sr_no));
       }
     })

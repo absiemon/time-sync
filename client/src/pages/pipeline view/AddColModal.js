@@ -14,7 +14,7 @@ function AddColModal({ visible, setVisible, fetchAgain, setFetchAgain, selectedP
     useEffect(() => {
         if (stageId) {
             const fetchData = async () => {
-                await axios.get(`http://localhost:8000/api/pipeline/${stageId}/get-stage`).then((res) => {
+                await axios.get(`/pipeline/${stageId}/get-stage`).then((res) => {
                     const data = res.data?.data[0];
                     console.log(data)
                     form.setFieldsValue({
@@ -40,7 +40,7 @@ function AddColModal({ visible, setVisible, fetchAgain, setFetchAgain, selectedP
         try {
             const values = form.getFieldValue();
             if (stageId) {
-                await axios.put(`http://localhost:8000/api/pipeline/${stageId}/update-stage`, values);
+                await axios.put(`/pipeline/${stageId}/update-stage`, values);
                 setFetchAgain(!fetchAgain)
                 setLoading(false);
                 setVisible(false)
@@ -48,7 +48,7 @@ function AddColModal({ visible, setVisible, fetchAgain, setFetchAgain, selectedP
                 form.resetFields();
             }
             else {
-                await axios.post(`http://localhost:8000/api/pipeline/${selectedPipelineId}/create-stage`, values);
+                await axios.post(`/pipeline/${selectedPipelineId}/create-stage`, values);
                 setFetchAgain(!fetchAgain)
                 setLoading(false);
                 setVisible(false)

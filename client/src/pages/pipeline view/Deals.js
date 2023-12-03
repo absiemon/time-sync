@@ -58,7 +58,7 @@ function Deals() {
 
     useEffect(() => {
       const fetchData = async () => {
-        const result = await axios.get('http://localhost:8000/api/deal/get');
+        const result = await axios.get('/deal/get');
         setDeals(result.data);
       };
       fetchData();
@@ -85,7 +85,7 @@ function Deals() {
               'Your file has been deleted.',
               'success'
             )
-            axios.delete(`http://localhost:8000/api/deal/${sr_no}/delete`);
+            axios.delete(`/deal/${sr_no}/delete`);
             setDeals(deals.filter((item) => item.id !== sr_no));
           }
         })

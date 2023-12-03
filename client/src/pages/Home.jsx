@@ -36,7 +36,7 @@ const Home = () => {
   useEffect(() => {
     setLoading_one(true);
     axios
-      .get("http://localhost:8000/api/deal/get_deal?year=" + selectedYear_one)
+      .get("/deal/get_deal?year=" + selectedYear_one)
       .then((res) => {
         setData_one(res.data.data);
         setLoading_one(false);
@@ -47,7 +47,7 @@ const Home = () => {
   useEffect(() => {
     setLoading_two(true);
     axios
-      .get("http://localhost:8000/api/deal/get_deal_status?year=" + selectedYear_two)
+      .get("/deal/get_deal_status?year=" + selectedYear_two)
       .then((res) => {
         setData_two(res.data.data);
         setLoading_two(false);
@@ -77,7 +77,7 @@ const Home = () => {
   useEffect(() => {
     setLoading_three(true);
     axios
-      .get("http://localhost:8000/api/deal/get_won-loss_deals?year=" + selectedYear_three)
+      .get("/deal/get_won-loss_deals?year=" + selectedYear_three)
       .then((res) => {
         setData_three(res.data.data);
         setLoading_three(false);

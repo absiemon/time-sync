@@ -3,7 +3,6 @@ import cors from "cors";
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
-import { createServer } from 'http';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -40,9 +39,6 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.use('/', (req, res)=>{
-  return res.json({ msg: "backend working"})
-})
 
 app.use('/api/employee', employee);
 

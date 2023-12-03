@@ -30,6 +30,7 @@ const Proposal = lazy(() => import("./pages/proposal/Proposal"));
 const ProposalForm = lazy(() => import("./pages/proposal/ProposalForm"));
 
 axios.defaults.withCredentials = true;
+axios.defaults.baseURL = 'http://localhost:8000/api';
 
 const App = () => {
   const navigate = useNavigate()
@@ -42,7 +43,7 @@ const App = () => {
 
     setLoading(true);
     axios
-      .post("http://localhost:8000/api/auth/profile")
+      .post("/auth/profile")
       .then((res) => {
         setLoading(false);
         if (res.data.login_status) {

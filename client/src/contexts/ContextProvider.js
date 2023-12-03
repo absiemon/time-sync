@@ -29,7 +29,7 @@ export const ContextProvider = ({ children }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axios.get(`http://localhost:8000/api/pipeline/get`);
+      const res = await axios.get(`/pipeline/get`);
       const data = res.data?.data;
       setSelectedPipelineName(data[0]?.name)
       setPipelines(data);

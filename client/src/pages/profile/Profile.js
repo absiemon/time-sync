@@ -57,7 +57,7 @@ function Profile() {
     }
     setUser(userData);
     const fetchData = async () => {
-      const result = await axios.get(`http://localhost:8000/api/employee/get-single-employee/${Id}`);
+      const result = await axios.get(`/employee/get-single-employee/${Id}`);
       setFetchAgain(!fetchAgain)
       setEmployee(result?.data[0]);
       setEmp({
@@ -83,7 +83,7 @@ function Profile() {
     }
       setUser(userData);
       const fetchData = async () => {
-        const result = await axios.get(`http://localhost:8000/api/employee-contract/get-employee-contract/${Id}`);
+        const result = await axios.get(`/employee-contract/get-employee-contract/${Id}`);
         setEmployeeContract(result.data);
         setEmp((prev)=>{
           return {...prev, emp_contract: result?.data[0]?.contract_attachment && JSON.parse(result?.data[0]?.contract_attachment)[0]}
@@ -103,7 +103,7 @@ function Profile() {
       Id = userData?.userId
     }
       const fetchData = async () => {
-        const result = await axios.get(`http://localhost:8000/api/passport/get/${Id}`);
+        const result = await axios.get(`/passport/get/${Id}`);
         setEmpPassport(result.data);
       };
       fetchData();

@@ -18,7 +18,7 @@ const EmployeeCard = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const result = await axios.get('http://localhost:8000/api/employee/get-single-employee/' + id);
+            const result = await axios.get('/employee/get-single-employee/' + id);
             setEmployee(result.data[0]);
             setEmpImage(result.data[0]?.emp_image && JSON.parse(result.data[0]?.emp_image)[0])
             setEmpPhone(result.data[0]?.phone && JSON.parse(result.data[0]?.phone).key)
