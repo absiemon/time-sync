@@ -40,6 +40,9 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
+app.use('/', (req, res)=>{
+  return res.json({ msg: "backend working"})
+})
 
 app.use('/api/employee', employee);
 
