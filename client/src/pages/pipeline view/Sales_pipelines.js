@@ -43,6 +43,7 @@ const Sales_pipelines = () => {
   const [visibleColModal, setVisibleColModal] = useState(false);
 
   const [clickedCol, setClickedCol] = useState();
+  const [isClickedCol, setIsClickedCol] = useState(false);
 
   const [fetchAgain, setFetchAgain] = useState(false)
 
@@ -203,6 +204,7 @@ const Sales_pipelines = () => {
 
   const handleCreateCard = (columnId) => {
     setClickedCol(columnId)
+    setIsClickedCol(!isClickedCol)
     setVisible(true)
   };
 
@@ -307,6 +309,7 @@ const Sales_pipelines = () => {
         fetchAgain={fetchAgain}
         setFetchAgain={setFetchAgain}
         cardId={cardId}
+        isClickedCol={isClickedCol}
       />
 
       <AddColModal

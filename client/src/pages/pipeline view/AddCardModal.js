@@ -14,7 +14,7 @@ import '../../assets/styles/home.css'
 import { useStateContext } from '../../contexts/ContextProvider';
 
 
-function AddCardModal({ visible, setVisible, clickedCol, setColumns, setCards, fetchAgain, setFetchAgain, cardId }) {
+function AddCardModal({ visible, setVisible, clickedCol, setColumns, setCards, fetchAgain, setFetchAgain, cardId, isClickedCol }) {
   const [form] = Form.useForm();
 
     const {
@@ -72,7 +72,6 @@ function AddCardModal({ visible, setVisible, clickedCol, setColumns, setCards, f
       fetchData();
     }
     else{
-      console.log(selectedPipeline, clickedCol)
       form.resetFields();
       form.setFieldsValue({
         deal_status: "active",
@@ -81,7 +80,7 @@ function AddCardModal({ visible, setVisible, clickedCol, setColumns, setCards, f
         stage_id: clickedCol
       })
     }
-  }, [form, cardId, clickedCol])
+  }, [form, cardId, clickedCol, isClickedCol])
 
   useEffect(() => {
     form.setFieldsValue({
@@ -285,7 +284,7 @@ function AddCardModal({ visible, setVisible, clickedCol, setColumns, setCards, f
 
             <Form.Item
               className="username"
-              label="Person"
+              label="Lead type value"
               name="lead_type_value"
               rules={[
                 {

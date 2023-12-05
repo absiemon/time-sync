@@ -30,7 +30,8 @@ const Proposal = lazy(() => import("./pages/proposal/Proposal"));
 const ProposalForm = lazy(() => import("./pages/proposal/ProposalForm"));
 
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = 'https://timesync-2fmv.onrender.com/api';
+// axios.defaults.baseURL = 'https://timesync-2fmv.onrender.com/api';
+axios.defaults.baseURL = 'http://localhost:8000/api';
 
 const App = () => {
   const navigate = useNavigate()
@@ -60,6 +61,7 @@ const App = () => {
         navigate("/auth/login")
       });
   }, []);
+
 
   return (
     <>
@@ -98,7 +100,7 @@ const App = () => {
               <Navbar />
             </div>
             <div style={{ background: "rgb(28, 31, 38)" }}>
-              <Routes>
+              <Routes >
                 {/* dashboard  */}
                 <Route path="/" element={<Home />} />
 
@@ -245,6 +247,7 @@ const App = () => {
       ) : loading ? (
         <LoadingPage />
       ) : (
+        // <Login />
         <Routes>
           <Route path="/auth/login" element={<Login />} />
           <Route path="/auth/signup" element={<Register />} />
