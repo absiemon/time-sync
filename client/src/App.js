@@ -30,8 +30,8 @@ const Proposal = lazy(() => import("./pages/proposal/Proposal"));
 const ProposalForm = lazy(() => import("./pages/proposal/ProposalForm"));
 
 axios.defaults.withCredentials = true;
-// axios.defaults.baseURL = 'https://timesync-2fmv.onrender.com/api';
-axios.defaults.baseURL = 'http://localhost:8000/api';
+axios.defaults.baseURL = 'https://timesync-2fmv.onrender.com/api';
+// axios.defaults.baseURL = 'http://localhost:8000/api';
 
 const App = () => {
   const navigate = useNavigate()
