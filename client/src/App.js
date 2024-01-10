@@ -237,7 +237,7 @@ const App = () => {
                 <Route path="/pipeline/create" element={<PipelineForm />} />
                 <Route path="/pipeline/create/:id" element={<PipelineForm />} />
                 <Route path="/pipeline/view" element={<Sales_pipelines />} />
-
+                <Route path="/auth/login" element={<Login />} />
                 <Route path="/user/my_profile" element={<Profile2 />} />
               </Routes>
               <Footer />
