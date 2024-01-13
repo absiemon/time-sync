@@ -1,12 +1,11 @@
 import React, { useEffect, lazy, Suspense, useState } from "react";
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 
-import { Navbar, Footer, Sidebar, ThemeSettings } from "./components";
+import { Navbar, Footer, Sidebar,} from "./components";
 import { Home } from "./pages";
 import "./App.css";
 
 import { useStateContext } from "./contexts/ContextProvider";
-import Login from "./pages/auth/Login2.jsx";
 import { Spin, message } from "antd";
 import LoadingPage from "./LoadingPage";
 import axios from "axios";
@@ -15,8 +14,7 @@ import Profile2 from "./pages/profile/Profile2";
 import Pipeline from "./pages/pipelines/Pipeline";
 import PipelineForm from "./pages/pipelines/PipelineForm";
 import Sales_pipelines from "./pages/pipeline view/Sales_pipelines";
-import Register from "./pages/auth/Register";
-import ResetPassword from "./pages/auth/ResetPassword";
+import AuthRoutes from "./routes/AuthRouter.jsx";
 
 const Persons = lazy(() => import("./pages/persons/Persons"));
 const PersonsForm = lazy(() => import("./pages/persons/PersonsForm"));
@@ -42,25 +40,20 @@ const App = () => {
   useEffect(() => {
 
     setLoading(true);
-    axios.post("/auth/profile")
+    axios
+      .post("/auth/profile")
       .then((res) => {
         setLoading(false);
         if (res.data.login_status) {
-          console.log("here Line 49")
           setIsAuthenticated(true);
           setUser(res.data?.user);
-          const user = localStorage.getItem('user');
-          if(!user){
-            localStorage.setItem('user', res.data?.user)
-            navigate("/")
-          }
+          navigate("/")
         }
         else{
           navigate("/auth/login")
         }
       })
       .catch((err) => {
-        console.log("here 60")
         setLoading(false);
         navigate("/auth/login")
       });
@@ -106,7 +99,6 @@ const App = () => {
             <div style={{ background: "rgb(28, 31, 38)" }}>
               <Routes >
                 {/* dashboard  */}
-                
                 <Route path="/" element={<Home />} />
 
                 <Route
@@ -252,11 +244,8 @@ const App = () => {
       ) : loading ? (
         <LoadingPage />
       ) : (
-        <Routes>
-          <Route path="/auth/login" element={<Login />} />
-          <Route path="/auth/signup" element={<Register />} />
-          <Route path="/auth/reset_password" element={<ResetPassword />} />
-        </Routes>
+        // <Login />
+        <AuthRoutes/>
       )}
     </>
   );

@@ -21,12 +21,12 @@ const verifyToken = (req, res, next) => {
                     else {
                         const userData = results[0];
                         const response = {
-                            emp_id: userData.emp_id,
-                            emp_name: userData.name,
-                            email: userData.email,
-                            emp_image: userData.emp_image,
-                            created_at: userData.created_at,
-                            updated_at: userData.updated_at
+                            emp_id: userData?.emp_id,
+                            emp_name: userData?.name,
+                            email: userData?.email,
+                            emp_image: userData?.emp_image,
+                            created_at: userData?.created_at,
+                            updated_at: userData?.updated_at
                         }
                         req.user = response;
                         next();
