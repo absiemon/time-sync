@@ -1,5 +1,5 @@
 import React, { useEffect, lazy, Suspense, useState } from "react";
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate, Navigate } from "react-router-dom";
 
 import { Navbar, Footer, Sidebar, ThemeSettings } from "./components";
 import { Home } from "./pages";
@@ -17,6 +17,7 @@ import PipelineForm from "./pages/pipelines/PipelineForm";
 import Sales_pipelines from "./pages/pipeline view/Sales_pipelines";
 import Register from "./pages/auth/Register";
 import ResetPassword from "./pages/auth/ResetPassword";
+import NotFound from "./pages/404.jsx";
 
 const Persons = lazy(() => import("./pages/persons/Persons"));
 const PersonsForm = lazy(() => import("./pages/persons/PersonsForm"));
@@ -46,7 +47,6 @@ const App = () => {
       .then((res) => {
         setLoading(false);
         if (res.data.login_status) {
-          console.log("here Line 49")
           setIsAuthenticated(true);
           setUser(res.data?.user);
           const user = localStorage.getItem('user');
@@ -64,7 +64,7 @@ const App = () => {
         setLoading(false);
         navigate("/auth/login")
       });
-  }, []);
+  }, [navigate]);
 
 
   return (
@@ -244,6 +244,9 @@ const App = () => {
                 <Route path="/pipeline/view" element={<Sales_pipelines />} />
 
                 <Route path="/user/my_profile" element={<Profile2 />} />
+
+                <Route  element={<NotFound/>} />
+
               </Routes>
               <Footer />
             </div>
@@ -256,6 +259,7 @@ const App = () => {
           <Route path="/auth/login" element={<Login />} />
           <Route path="/auth/signup" element={<Register />} />
           <Route path="/auth/reset_password" element={<ResetPassword />} />
+          <Route  element={<NotFound/>} />
         </Routes>
       )}
     </>

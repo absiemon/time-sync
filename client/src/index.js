@@ -1,20 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
-import './index.css';
-import App from './App';
+import "./index.css";
+import App from "./App";
 import { BrowserRouter, HashRouter } from "react-router-dom";
-import { ContextProvider } from './contexts/ContextProvider';
-import * as serviceWorkerRegistration from './serviceWorkerRegistration';
-import reportWebVitals from './reportWebVitals.js';
+import { ContextProvider } from "./contexts/ContextProvider";
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
+import reportWebVitals from "./reportWebVitals.js";
+import { HelmetProvider } from "react-helmet-async";
 
 ReactDOM.render(
   <HashRouter>
     <ContextProvider>
-      <App />
+      <HelmetProvider>
+        <App />
+      </HelmetProvider>
     </ContextProvider>
   </HashRouter>,
-  document.getElementById('root'),
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change

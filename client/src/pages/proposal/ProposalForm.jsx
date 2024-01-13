@@ -38,7 +38,7 @@ function ProposalForm() {
 
     const handleDealSelect = async (value) => {
         let deal_id;
-        deals.map((deal) => {
+        deals?.map((deal) => {
             if (deal.title === value) {
                 deal_id = deal?.id
                 form.setFieldsValue({
@@ -181,7 +181,7 @@ function ProposalForm() {
 
                                                     onChange={handleDealSelect}
                                                     options={
-                                                        deals.map((p) => {
+                                                        deals && deals?.map((p) => {
                                                             return (
                                                                 {
                                                                     value: p.title,
