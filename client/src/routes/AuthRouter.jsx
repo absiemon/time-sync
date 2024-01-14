@@ -1,63 +1,19 @@
-import React, { lazy, Suspense} from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 
 import "../App.css";
 
-import { Spin } from "antd";
-
-const Login = lazy(() => import("../pages/auth/Login2.jsx"));
-const Register = lazy(() => import("../pages/auth/Register"));
-const ResetPassword = lazy(() => import("../pages/auth/ResetPassword"));
-
-// axios.defaults.withCredentials = true;
-// axios.defaults.baseURL = 'http://localhost:8000/api';
+import Login from "../pages/auth/Login2.jsx";
+import Register from "../pages/auth/Register";
+import ResetPassword from "../pages/auth/ResetPassword";
 
 const AuthRoutes = () => {
   return (
     <>
       <Routes>
-        <Route
-          path="/auth/login"
-          element={
-            <Suspense
-              fallback={
-                <div className="spinner_tone">
-                  <Spin />
-                </div>
-              }
-            >
-              <Login />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/auth/signup"
-          element={
-            <Suspense
-              fallback={
-                <div className="spinner_tone">
-                  <Spin />
-                </div>
-              }
-            >
-              <Register />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/auth/reset_password"
-          element={
-            <Suspense
-              fallback={
-                <div className="spinner_tone">
-                  <Spin />
-                </div>
-              }
-            >
-              <ResetPassword />
-            </Suspense>
-          }
-        />
+        <Route path="/auth/login" element={<Login />} />
+        <Route path="/auth/signup" element={<Register />} />
+        <Route path="/auth/reset_password" element={<ResetPassword />} />
       </Routes>
     </>
   );

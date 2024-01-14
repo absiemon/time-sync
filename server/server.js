@@ -30,6 +30,7 @@ app.use(morgan());
 app.disable('etag')
 
 const allowedOrigins = ['https://time-sync.onrender.com'];
+// const allowedOrigins = ['http://localhost:3000'];
 const corsOptions = {
     credentials: true,
     origin: allowedOrigins,
