@@ -65,7 +65,7 @@ const App = () => {
         setLoading(false);
         navigate("/auth/login")
       });
-  }, [navigate]);
+  }, []);
 
 
   return (
