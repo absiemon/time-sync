@@ -304,3 +304,8 @@ div:where(.swal2-container) div:where(.swal2-popup){
 :where(.css-dev-only-do-not-override-12jzuas).ant-radio-wrapper span.ant-radio+*{
   color: white !important;
 }
+
+.ant-card{
+  background-color: #2F333B !important;
+  color: #CCCCCC !important;
+}
