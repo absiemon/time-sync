@@ -59,6 +59,7 @@ const Login2 = () => {
 
     e.preventDefault();
     setLoading(true)
+    localStorage.removeItem('user')
     try {
       const res = await axios.post(
         "/auth/login",
