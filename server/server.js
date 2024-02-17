@@ -40,10 +40,6 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.get('/', (req, res)=>{
-  return res.json({status:'true'})
-})
-
 app.use('/api/employee', employee);
 
 app.use('/api/auth', authRoute);
