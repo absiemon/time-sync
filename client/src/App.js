@@ -13,8 +13,8 @@ import GeneralRoutes from "./routes/GeneralRouter.jsx";
 
 import { useStateContext } from "./contexts/ContextProvider.js";
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = 'https://timesync-2fmv.onrender.com/api';
-// axios.defaults.baseURL = "http://localhost:8000/api";
+// axios.defaults.baseURL = 'https://timesync-2fmv.onrender.com/api';
+axios.defaults.baseURL = "http://localhost:8000/api";
 
 const App = () => {
   const navigate = useNavigate();

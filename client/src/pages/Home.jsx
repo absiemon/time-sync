@@ -136,19 +136,16 @@ const Home = () => {
           />
         </header>
         <Divider className="bg-secondary" />
-        <div className="px-4" 
+        <div className="px-4 bg-[#20232A] min-h-[320px] h-[320px] " 
           style={{
-            backgroundColor: "#20232A",
-            height: "320px",
-            minHeight: "320px",
             width: "100%",
             overflowX: "scroll",
-            overflowY: 'hidden'
+            // overflowY: 'hidden'
           }}
         >
 
           {!loading_three ? (
-            <div className="py-2 flex gap-3">
+            <div className="py-2 w-[100%] grid grid-cols-3 gap-3">
               {data_three &&
                data_three.map((obj)=>{
                 return (

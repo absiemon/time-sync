@@ -250,7 +250,7 @@ export const sendMail = async(req, res) => {
         otpExpiryTime.setMinutes(otpExpiryTime.getMinutes() + 5);
     
         let message = {
-            from : "siemonab@gmail.com",
+            from : "TimeSync siemonab@gmail.com",
             to : userEmail,
             subject: "Otp for password reset is:",
             html: "<h3>OTP for account verification is </h3>"  + "<h1 style='font-weight:bold;'>" + otp +"</h1>"

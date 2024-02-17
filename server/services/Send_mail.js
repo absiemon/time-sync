@@ -4,7 +4,7 @@ const sendEmail = (email, subject, content, attachment, cc, bcc) =>{
 
   return new Promise((resolve, reject) => {
       let obj = {
-          from: 'DigitalIpsum super_dolphins@superdolphins.com',
+          from: '',
           to: email, // list of receivers
           subject: subject, 
           html: content
