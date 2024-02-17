@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import morgan from 'morgan';
-import bodyParser, { json } from 'body-parser';
+import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 dotenv.config();
