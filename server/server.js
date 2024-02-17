@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import morgan from 'morgan';
-import bodyParser from 'body-parser';
+import bodyParser, { json } from 'body-parser';
 import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 dotenv.config();
@@ -40,6 +40,9 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
+app.get('/', (req, res)=>{
+  return res.json({status:'true'})
+})
 
 app.use('/api/employee', employee);
 
