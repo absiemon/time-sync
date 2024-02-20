@@ -37,7 +37,7 @@ function ProfileMenu(){
         <Avatar  src={user?.emp_image ? `https://superdolphins.com/superdolphins.com/superdolphinsltd/${user?.emp_image}` : avaterImg} alt='icon' style={{height:'46px', width:'46px'}}/>
         <div >
           <div style={{fontSize:'16px'}}>{user?.emp_name}</div>
-          <div className="text-secondary" style={{fontSize:'13px'}}>{user?.email}</div>
+          <div className="text-secondary" style={{fontSize:'10px'}}>{user?.email}</div>
         </div>
       </div>,
       key: '0',
