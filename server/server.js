@@ -53,6 +53,11 @@ app.use('/api/organization', organizationRoute);
 
 app.use('/api/proposal', proposalRoute);
 
+// Dummy api to run server every 14mint because render stops the server after 15mint of inactivity.
+app.use('/api/run-server', (req, res)=>{
+  return res.statue(200).json({message: "Server is up and running"})
+});
+
 const port = process.env.PORT || 8000;
 
 const server = app.listen(port);
